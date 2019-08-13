@@ -1,0 +1,20 @@
+version: '3'
+services:
+  pgadmin4:
+    build: .
+    image: tarunlalwani/pgadmin4:0.4
+    environment:
+      - SERVER_NAME=UAT DB
+      - SERVER_PORT=5732
+      - SERVER_HOST=host.docker.internal
+      - MAINTENANCE_DB_NAME=egov_uat_db
+      - PGADMIN_PORT=8080
+      - DB_ADMIN_USERNAME=egovuat
+      - DB_READ_USERNAME=pbuat_readonly
+      - PGADMIN_READ_EMAIL=read
+      - PGADMIN_READ_PASSWORD=read
+      - PGADMIN_DEFAULT_PASSWORD=demo
+      - PGADMIN_DEFAULT_EMAIL=demo
+      - SCRIPT_NAME=/pgadmin
+    ports:
+      - "9090:8080"
